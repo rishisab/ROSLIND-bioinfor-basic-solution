@@ -1,5 +1,61 @@
 #roslind is a open source to get some practice qus based on your capablity or to practice some codes based on rerseach problems.
 you can practice a code and try to solve via different sources which help you to build your coding knowldge. 
-I personaly tried this codes on Spyder(Python 3.9) and im addint the codes here.
+I personally tried this codes on Spyder(Python 3.9) and im addint the codes here.
 Q1. A DNA string were given count the number of each bases present in the given seq.
-s= intput("Enter a dna seq").upper()
+s= intput("Enter a dna seq").upper()    # taking input from user and converting its to capital letter
+s = input("Enter a DNA sequence: ").upper()
+
+if all(base in "ATGC" for base in s):   #to check proper base were entered
+    print("Valid DNA sequence entered.")
+    
+    a_count = 0                      #start the count with 0
+    t_count = 0
+    g_count = 0
+    c_count = 0
+
+    for base in s:
+        if base == "A":
+            a_count += 1
+        elif base == "T":
+            t_count += 1
+        elif base == "G":
+            g_count += 1
+        elif base == "C":
+            c_count += 1
+
+    print(f" {a_count}   {t_count}   {g_count}   {c_count}")
+
+
+
+or we can use the function to solve this code
+def base_count(s):                         #defining a function
+    A=s.count("A")                         s is our seq input and count is function which help to count this giver attribute(no initialization require)
+    T=s.count("T")
+    G=s.count("G")
+    C=s.count("C")
+    return A,T,G,C                         #function output
+s = input("Enter a DNA sequence: ").upper()
+
+if all(base in "ATGC" for base in s):
+    print("Valid DNA sequence entered.")
+    print(base_count(s))
+else: 
+    print("Invalid DNA sequence. Only A, T, G, C allowed.")
+
+
+
+Q2 transcribe the given dna seq.(translate T to U)
+s = input("Enter a DNA sequence: ").upper()
+trans_rna=s.replace("T","U")
+print("translation of seq",s,"is",trans_rna)
+
+
+
+
+Q3 Find the complement and revese compliment of the given string
+
+
+
+
+else:
+    print("Invalid DNA sequence entered.")
