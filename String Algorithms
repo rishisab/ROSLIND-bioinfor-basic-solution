@@ -53,9 +53,54 @@ print("translation of seq",s,"is",trans_rna)
 
 
 Q3 Find the complement and revese compliment of the given string
+s = input("Enter a DNA sequence: ").upper()
+
+compliment_dicti={                # creating a dictionary for complimentry bases
+    "A":"T",
+    "G":"C",
+    "T":"A",
+    "C":"G"}
+complement_seq="".join(compliment_dicti[base]for base in s)   # give comple seq
+reverse_seq=s[::-1]                                          #slicing
+reverse_comple=complement_seq[::-1]
+print("enter seq is: ",s)
+print("complement of the given seq is: ",complement_seq)
+print("reverse complement of the given seq is: ",reverse_comple)
 
 
 
 
-else:
-    print("Invalid DNA sequence entered.")
+Q4 find the gc content of the seq
+def gc_content(seq):
+gc=seq.count("G")+seq.count("C")
+return (gc/len(seq))*100 if seq else 0
+
+
+
+Q4A find the gc content of entered fasta seqs:
+def gc_content(seq):
+    gc = seq.count('G') + seq.count('C')
+    return (gc / len(seq)) * 100 if seq else 0
+
+def fasta_file (filename):      #not change filename use it as it is
+
+    with open(filename)as f:
+        sequence={}
+        seq_id=""
+        seq_data=""
+        for line in f:
+            line=line.strip()
+            if line.startswith(">"):
+                if seq_id:
+                    sequence[seq_id]=gc_content(seq_data)
+                seq_id=line[1:]
+                seq_data=""
+            else:
+                
+               seq_data+= line.upper()
+        if seq_id:
+            sequence[seq_id]=gc_content(seq_data)
+    for id, gc in sequence.items():
+        print(f"{id}: GC content={gc:2f}%")
+fasta_file(("name of fasta file).fasta")
+
