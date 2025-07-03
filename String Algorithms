@@ -1,6 +1,8 @@
 #roslind is a open source to get some practice qus based on your capablity or to practice some codes based on rerseach problems.
 you can practice a code and try to solve via different sources which help you to build your coding knowldge. 
 I personally tried this codes on Spyder(Python 3.9) and im addint the codes here.
+
+
 Q1. A DNA string were given count the number of each bases present in the given seq.
 s= intput("Enter a dna seq").upper()    # taking input from user and converting its to capital letter
 s = input("Enter a DNA sequence: ").upper()
